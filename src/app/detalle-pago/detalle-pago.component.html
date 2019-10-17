@@ -1,0 +1,42 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title">Ordenes De Gasto</h4>
+                <p class="card-category">Sistema para generar órdenes de pagos ESPE.</p>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <th>Número Ordinario</th>
+                    <th>Valor de contrato</th>
+                    <th>Precio Unitario</th>
+                    <th>Sub Total</th>
+                    <th>IVA</th>
+                    <th>Otros Impuestos</th>
+                    <th>Descripción</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Fecha Inicio</th>
+                    <th></th>
+                    <th></th>
+
+                    <tr *ngFor="let ordenGasto of ordenGastos">
+                        <td>{{ ordenGasto.id_orden }}</td>
+                        <td>{{ ordenGasto.numero_contrato }}</td>
+                        <td>{{ ordenGasto.precioUnitario }}</td>
+                        <td>{{ ordenGasto.subtotal }}</td>
+                        <td>{{ ordenGasto.iva }}</td>
+                        <td>{{ ordenGasto.otrosImpuestos}}</td>
+                        <td>{{ ordenGasto.descripcion }}</td>
+                        <td>{{ ordenGasto.cantidad }}</td>
+                        <td>{{ ordenGasto.total }}</td>
+                        <td>{{ ordenGasto.fechaHoraIni }}</td>
+                        <td>
+                            <button value="Editar" title="Editar" class="form-control" (click)="Editar(ordenGasto)"><i class="material-icons">
+                                create
+                                </i></button>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>

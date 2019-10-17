@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title">Ordenes De Gasto</h4>
+                <p class="card-category">Sistema para generar órdenes de pagos ESPE.</p>
+            </div>
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <th>N°</th>
+                    <th>Nuemero de Contrato</th>
+                    <th>Nombre Contratista</th>
+                    <th>Ruc</th>
+                    <th>Objeto del contrato</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Saldo</th>
+                    <th>Fecha</th>
+                    <th>Mes</th>
+                    <tr *ngFor="let pagos of pago">
+                        <td>{{ pagos.numero_contrato }}</td>
+                        <td>{{ pagos.numOrden}}</td>
+                        <td>{{ pagos.nombreContratista}}</td>
+                        <td>{{ pagos.ruc_contratista}}</td>
+                        <td>{{ pagos.objeto_contrato}}</td>
+                        <td>{{ pagos.cantidad }}</td>
+                        <td>{{ pagos.total}}</td>
+                        <td>{{ pagos.fechaHoraIni }}</td>
+                        <td>{{ pagos.mes}}
+
+                            <td>
+                                <button value="Editar" title="Editar" class="form-control" (click)="Editar(pagos)">
+                              <img src="../../assets/img/editar.png" alt="new-img" height="25" width="25">
+
+                          </button>
+
+                            </td>
+                            <td>
+                                <button value="Eliminar" title="Eliminar" class="form-control" (click)="Borrar(pagos)">
+                              <img src="../../assets/img/borrar.png" alt="new-img" height="25" width="25">
+                              </button>
+                            </td>
+                            <td>
+                                <button value="Imprimir" title="Imprimir" class="form-control" (click)="pdf()">
+                              <img src="../../assets/img/imprimir.png" alt="new-img" height="25" width="25">
+
+                              </button>
+                            </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- <button value="Imprimir" title="Imprimir" class="form-control" (click)="pdf()"><i class="material-icons" >print&nbsp;
+      </i></button> -->
+    </div>

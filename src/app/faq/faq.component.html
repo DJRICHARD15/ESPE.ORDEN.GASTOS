@@ -1,0 +1,194 @@
+<div class="container">
+    <div class="row">
+        <img class="avatar" src="../../assets/img/Espe-Angular-Logo.png" alt="logo-ESPE">
+    </div>
+</div>
+<div class="main-content">
+
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title">Órdenes De Gasto</h4>
+                <p class="card-category">
+                    Sistema para generar órdesnes de gastos ESPE.
+                </p>
+            </div>
+            <div class="card-body">
+                <div class="card-body">
+                    <table class="table">
+                        <div class="col-12">
+                            <table class="table">
+                                <div class="col-12">
+                                    <form action="registro" method="post" class="form-register" onsubmit="return validar();">
+                                        <hr align="left" noshade="noshade" size="2" width="100%" />
+
+                                        <h5>SECCIÓN I - IDENTIFICACIÓN DE LA ORDEN DE GASTO</h5>
+                                        <h6>
+                                            <tr *ngFor="let ordenGasto of ordenGastos">
+
+                                                <th>Número de Orden</th>
+                                                <td> OD {{ ordenGasto.numOrden}} UTIC</td>
+
+
+                                                <th>
+                                                    Fecha:
+                                                </th>
+                                                <td> {{ ordenGasto.fechaHoraIni}}</td>
+
+                                        </h6>
+
+                                        <hr align="left" noshade="noshade" size="2" width="100%" />
+                                        <tr *ngFor="let contrato of contrato">
+
+
+                                            <h5>SECCIÓN II - INFORMACIÓN DE LA CONTRATACIÓN</h5>
+                                            <h6>
+                                                <th>
+                                                    N°: Contrato/Orden de Compra/Contratación:
+                                                </th>
+                                                <td> {{contrato.numero}}</td>
+
+                                                <th>
+                                                    Objeto de la Contratación:
+                                                </th>
+                                                <td> {{contrato.objeto}}</td>
+
+                                            </h6>
+
+                                            <hr align="left" noshade="noshade" size="2" width="100%" />
+
+                                            <h5>SECCIÓN III - INFORMACIÓN DEL CONTRATISTA</h5>
+                                            <h6>
+                                                <th>
+                                                    Nombre:
+                                                </th>
+                                                <td> {{contrato.nombre}}</td>
+
+                                                <th>
+                                                    Ruc:
+                                                </th>
+                                                <td> {{contrato.ruc}}</td>
+
+                                                <th>
+                                                    Mail:
+                                                </th>
+                                                <td> {{contrato.email}}</td>
+
+                                            </h6>
+
+                                            <hr align="left" noshade="noshade" size="2" width="100%" />
+                                            <tr *ngFor="let ordenGasto of ordenGastos">
+                                                <small><h5>SECCIÓN IV - INFORMACIÓN DE LA FACTURA</h5>
+                      <h6>
+                        <th>
+                          ORD:
+                        </th>
+                    <td>{{ ordenGasto.id_orden }}</td>
+
+
+                        <th>
+                          DESCRIPCIÓN:
+                        </th>
+                        <td>{{ ordenGasto.descripcion }}</td>
+
+                        <th>
+                          CANTIDAD:
+                        </th>
+                        <td>{{ ordenGasto.cantidad }}</td>
+
+                        <th> 
+                          PRECIO UNITARIO: 
+                        </th>
+                        <td>{{ ordenGasto.precioUnitario }}</td>
+  
+                      <th>
+                        SUBTOTAL:
+                      </th>
+                      <td>{{ ordenGasto.subtotal }}</td>
+
+                      <th>
+                        IVA 12%:
+                      </th>
+                      <td>{{ ordenGasto.iva }}</td>
+  
+                      <th>
+                        OTROS IMPUESTOS:
+                      </th>
+                      <td>{{ ordenGasto.otrosImpuestos }}</td>
+  
+                      <th>
+                        TOTAL:
+                      </th>
+                      <td>{{ ordenGasto.total }}</td>
+
+                    </h6>
+                    </small>
+
+
+                                                <hr align="left" noshade="noshade" size="2" width="100%" />
+                                                <tr *ngFor="let certificadoPresupuestario of certificadoPresupuestario">
+                                                    <h5>SECCIÓN V - INFORMACIÓN PRESUPUESTARIO PARA EL GASTO</h5>
+                                                    <h6>
+                                                        <th>
+                                                            CÓDIGO PRESUPUESTARIO:
+
+                                                        </th>
+                                                        <td>{{ certificadoPresupuestario.codigo }}</td>
+
+
+                                                        <th>
+                                                            DESCRIPCIÓN DEL ITEM PRESUPUESTARIO:
+                                                        </th>
+                                                        <td>{{ certificadoPresupuestario.item }}</td>
+
+
+                                                        <th>
+                                                            VALOR CERTIFICACIÓN:
+                                                        </th>
+                                                        <td>{{ certificadoPresupuestario.valor }}</td>
+
+                                                        <th>
+                                                            GASTOS A EFECTUAR:
+                                                        </th>
+                                                        <td>{{ certificadoPresupuestario.afectuar }}</td>
+
+                                                        <hr align="left" noshade="noshade" size="2" width="100%" />
+                                                        <tr *ngFor="let ordenGasto of ordenGastos">
+                                                            <th>
+                                                                SALDO:
+                                                            </th>
+                                                            <td>{{ ordenGasto.saldo }}</td>
+
+                                                    </h6>
+
+                                                    <h6>
+                                                    </h6>
+
+                                                    <hr align="left" noshade="noshade" size="2" width="100%" />
+
+                                                    <div class="col-12">
+
+                                                    </div>
+                                                    <h6> TOTAL DE LA ORDEN DE GASTO </h6>
+
+                                                    <h5> SECCIÓN VI - FIRMAS DE RESPONSABILIDAD </h5>
+                                                    <button mat-raised-button class="btn btn-success" onclick="window.print();">
+                          <i class="material-icons">print&nbsp;</i>Imprimir Orden</button>
+
+                                                    <h6>
+
+
+
+                                                    </h6>
+                                    </form>
+                                </div>
+
+                            </table>
+                        </div>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
